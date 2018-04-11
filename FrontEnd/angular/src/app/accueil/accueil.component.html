@@ -1,0 +1,32 @@
+<main>
+    <br/><br/>
+    <div class="container">
+
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <a class="btn btn-primary btn-lg" role="button" aria-disabled="true" *ngFor="let n of listeLienPagination; let i=index" (click)="reroute('accueil/'+i)">{{i+1}}</a>
+        </div><br/><br/>
+
+        <div class="lotArticles">
+            <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let a of getArticles()" >
+                <div class="panel panel-primary article">
+                    <div class="panel-heading detail" (click)="reroute( 'detail/'+a.getID() )">
+                        <h3 align="center">{{ a.getLabel() }}</h3><br>
+                    </div>
+                    <div class="panel-body" (click)="reroute( 'detail/'+a.getID() )">
+                        <img src="{{ a.getImage() }}" class="img-responsive rounded mx-auto d-block detail" alt="{{ a.getLabel() }}" />
+                    </div>
+                    <div class="panel-footer">
+                        <h1 align="center" class="detail" (click)="reroute( 'detail/'+a.getID() )">${{ a.getPrix() }}</h1>
+                        <p align="center"><button class="btn btn-primary" (click)="ajouterArticlePanierParID( a.getID() )">Ajouter au panier</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <a class="btn btn-primary btn-lg" role="button" aria-disabled="true" *ngFor="let n of listeLienPagination; let i=index" (click)="reroute('accueil/'+i)">{{i+1}}</a>
+        </div>
+
+    </div>
+
+</main>

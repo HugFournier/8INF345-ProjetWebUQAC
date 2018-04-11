@@ -1,0 +1,40 @@
+<main>
+    <br/><br/>
+    <div class="container table-responsive">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Article</th>
+                    <th>Prix</th>
+                    <th>Quantitée</th>
+                    <th>Sous-Total</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let aP of getArticlesPanier();">
+                {{ setArticle(aP.getArticle()) }}
+                <tr>
+                    <td colspan="4">
+                        <div>
+                            <h4>{{ a.getLabel() }}</h4>
+                            <p align="justify">{{ a.getDescription() }}</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button class="btn btn-danger" (click)="removeArticleParID(aP.getID())">Supprimer</button> </td>
+                    <td>${{a.getPrix()}}</td>
+                    <td>{{aP.getQuantite()}}</td>
+                    <td>${{aP.calculerTotal()}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr class="centrer">
+                    <td colspan="4" class="text-center">Total ${{calculerTotal()}}</td>
+                </tr>
+                <tr *ngIf="!estPanierVide()" class="centrer">
+                    <td colspan="4"><button class="btn btn-success" (click)="passerLaCommande()">Passer la commande</button></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</main>

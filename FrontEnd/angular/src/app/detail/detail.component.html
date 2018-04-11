@@ -1,0 +1,18 @@
+<main>
+    <div class="container">
+        <div class="panel primary article" *ngFor="let a of getArticles()">
+                <div class="panel-heading">
+                    <h3>{{ a.getLabel() }}</h3>
+                </div>
+                <div class="panel-body">
+                    <img src="{{ a.getImage() }}" class="img-responsive rounded mx-auto d-block" alt="{{ a.getLabel() }}" />
+                </div>
+                <br/>
+                <div class="panel-footer">
+                    <p>{{a.getDescription()}}</p>
+                    <h1 (click)="reroute( 'detail/'+a.getID() )">${{ a.getPrix() }}</h1>
+                    <button class="btn btn-primary" (click)="ajouterArticlePanierParID( a.getID() )">Ajouter au panier</button>
+                </div>
+        </div>
+    </div>
+</main>
