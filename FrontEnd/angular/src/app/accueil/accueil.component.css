@@ -1,0 +1,17 @@
+.article {
+    background-color: rgb(230, 230, 175);
+    padding-bottom: 1%;
+    margin-bottom: 4%;
+    padding-top: 27px;
+    border-radius: 10px;
+}
+
+.article * {
+    text-align: center;
+}
+
+.lotArticles {
+    display:flex;
+    align-items:stretch;
+    flex-flow: row wrap;
+}

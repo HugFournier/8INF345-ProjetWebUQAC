@@ -1,0 +1,14 @@
+.article {
+    padding-bottom: 1%;
+    margin-bottom: 4%;
+    padding-top: 27px;
+    border-radius: 10px;
+}
+
+.article * {
+    text-align: center;
+}
+
+.panel-footer p{
+    text-align: justify;
+}

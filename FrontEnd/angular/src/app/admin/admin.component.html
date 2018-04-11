@@ -1,0 +1,44 @@
+<main>
+    <br/><br/>
+    <div class="container table-responsive">
+        <h1>Panneau d'administration</h1>
+        <br/>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Prix</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let a of listeArticle; let i=index">
+                    <td>{{ a.getID() }}</td>
+                    <td><input type="text" #modifLabel class="form-control" value="{{ a.getLabel() }}"></td>
+                    <td><input type="text" #modifDescription class="form-control" value="{{ a.getDescription() }}"></td>
+                    <td><input type="number" #modifPrix class="form-control" value="{{ a.getPrix() }}" min="0"></td>
+                    <td>
+                        <button class="btn btn-success" (click)="modifArticle(modifLabel.value, modifDescription.value, modifPrix.value)">+</button>
+                        <button class="btn btn-danger" (click)="supprArticle(a.getID())">-</button>
+                    </td>
+                </tr>
+            </tbody> 
+            <tfoot>
+                <tr>
+                    <td><input [(ngModel)]="model.id" id="newID" type="number" class="form-control" placeholder="ID"  min="0"></td>
+                    <td><input [(ngModel)]="model.nom" id="newNom" type="text" class="form-control" placeholder="Nom de l'article"></td>
+                    <td><input [(ngModel)]="model.description" id="newDescription" type="text" class="form-control" placeholder="Description"></td>
+                    <td><input [(ngModel)]="model.prix" id="newPrix" type="number" class="form-control" placeholder="Prix"  min="0"></td>
+                    <td>
+                        <button type="button" class="btn btn-success" (click)="ajouterArticle()">Ajouter</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="/" class="btn btn-warning">Retour</a></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</main>
