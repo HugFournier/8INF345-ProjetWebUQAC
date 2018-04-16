@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/assets/css/styles.css"],"names":[],"mappings":"AAAA;IACI,UAAU;IACV,WAAW","file":"app.css","sourcesContent":["* {\r\n    margin: 0;\r\n    padding: 0;\r\n}\n\n\n// WEBPACK FOOTER //\n// ./src/assets/css/styles.css"],"sourceRoot":""}
