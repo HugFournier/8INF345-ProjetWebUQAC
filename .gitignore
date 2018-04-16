@@ -1,5 +1,5 @@
 #Compilation
-/dist
+dist/
 /tmp
 /out-tsc
 
