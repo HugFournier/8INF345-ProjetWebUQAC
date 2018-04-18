@@ -12,6 +12,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {AuthenticationService} from "./auth/auth.service";
 import {AuthGuard} from "./auth/auth-guard";
 import {MapComponent} from "./map/map.component";
+import {EtapeComponent} from "./etape/etape.component";
 
 @NgModule({
     imports: [
@@ -24,6 +25,7 @@ import {MapComponent} from "./map/map.component";
         AppComponent,
         ConnexionComponent,
         MapComponent,
+        EtapeComponent,
         AccueilComponent,
         PanierComponent,
         DetailComponent,

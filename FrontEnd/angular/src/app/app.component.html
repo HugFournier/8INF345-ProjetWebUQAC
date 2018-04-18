@@ -1,15 +1,13 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark">
     <div class="container-fluid">
-        <a style="color: #44c524" class="navbar-brand" (click)="reroute('accueil')">Mémé Market</a>
+        <a style="color: #44c524" class="navbar-brand" (click)="reroute('')">RoadTrip Planner</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li><a class="nav-link" (click)="reroute('accueil')">Accueil</a></li>
-                <li><a class="nav-link" (click)="reroute('panier')">Panier</a></li>
+                <li><a class="nav-link" (click)="reroute('')">Accueil</a></li>
                 <li><a class="nav-link" (click)="reroute('map')">Map</a></li>
-                <li class="nav-link" *ngIf="isConnected()"><a (click)="reroute('admin')">Panneau d'administration</a></li>
                 <li class="nav-link" *ngIf="isConnected()"><a (click)="logout()">Logout</a></li>
                 <li class="nav-link" *ngIf="!isConnected()"><a (click)="reroute('auth')">Login</a></li>
             </ul>

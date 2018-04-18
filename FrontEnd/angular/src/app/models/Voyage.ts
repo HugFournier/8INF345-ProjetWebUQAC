@@ -12,4 +12,6 @@ export class Voyage {
         this.etapes = etapes;
     }
 
+    
+
 }

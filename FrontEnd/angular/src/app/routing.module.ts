@@ -7,6 +7,7 @@ import {DetailComponent} from "./detail/detail.component";
 import {NgModule} from "@angular/core";
 import {AuthGuard} from "./auth/auth-guard";
 import {MapComponent} from "./map/map.component";
+import {EtapeComponent} from "./etape/etape.component";
 
 const routes: Routes = [
     { path: 'auth', component: ConnexionComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
     { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
     { path: 'detail/:id', component: DetailComponent },
     { path: 'map', component: MapComponent},
+    { path: 'etape/:id', component: EtapeComponent},
     { path: '**', redirectTo: '/notfound' }
 ];
 

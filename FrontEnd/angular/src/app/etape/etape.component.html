@@ -1,0 +1,22 @@
+<main>
+    <br>
+    <div class="container">
+        <div *ngFor="let e of getEtape()">
+            <h3>{{ e.nomVille }}</h3>
+            <p>{{ e.date }}</p>
+        </div><br>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center">
+                    <div #gmap style="width:80%;height:400px"></div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            
+        </div>
+
+    </div>
+</main>

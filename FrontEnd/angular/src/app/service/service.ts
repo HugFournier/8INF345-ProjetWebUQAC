@@ -1,4 +1,4 @@
-import {Article} from '../models/Models';
+import {Article} from '../models/Article';
 
 export class Service {
     private static TAILLE_PAGE : number = 6;
