@@ -4,6 +4,14 @@
         <div *ngFor="let e of getEtape()">
             <h3>{{ e.nomVille }}</h3>
             <p>{{ e.date }}</p>
+
+            <div *ngIf="e.idSuivante != null">
+                <div (click)="reroute( 'etape/'+e.idSuivante )">
+                    <p>Etape suivante</p>
+                </div>
+            </div>
+
+
         </div><br>
 
         <div class="row">
@@ -15,7 +23,7 @@
         </div>
 
         <div>
-            
+            <!-- Liste des points d'intérêts -->
         </div>
 
     </div>

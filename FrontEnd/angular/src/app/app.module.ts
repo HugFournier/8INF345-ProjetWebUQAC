@@ -13,6 +13,7 @@ import {AuthenticationService} from "./auth/auth.service";
 import {AuthGuard} from "./auth/auth-guard";
 import {MapComponent} from "./map/map.component";
 import {EtapeComponent} from "./etape/etape.component";
+import {VoyageComponent} from "./voyage/voyage.component";
 
 @NgModule({
     imports: [
@@ -26,6 +27,7 @@ import {EtapeComponent} from "./etape/etape.component";
         ConnexionComponent,
         MapComponent,
         EtapeComponent,
+        VoyageComponent,
         AccueilComponent,
         PanierComponent,
         DetailComponent,

@@ -8,6 +8,7 @@ import {NgModule} from "@angular/core";
 import {AuthGuard} from "./auth/auth-guard";
 import {MapComponent} from "./map/map.component";
 import {EtapeComponent} from "./etape/etape.component";
+import {VoyageComponent} from "./voyage/voyage.component";
 
 const routes: Routes = [
     { path: 'auth', component: ConnexionComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
     { path: 'detail/:id', component: DetailComponent },
     { path: 'map', component: MapComponent},
     { path: 'etape/:id', component: EtapeComponent},
+    { path: 'voyage/:id', component: VoyageComponent},
     { path: '**', redirectTo: '/notfound' }
 ];
 

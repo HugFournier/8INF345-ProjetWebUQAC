@@ -16,10 +16,10 @@ export class ServiceMaps{
     ];
 
     private static listeEtape2: Etape[] = [
-        new Etape(4, "Paris", new google.maps.LatLng(48.856614, 2.3522219000000177), 'DRIVING', '17/04/2018', true, 2, ServiceMaps.listePointInteret),
-        new Etape(5, "Clermont-Ferrand", new google.maps.LatLng(45.77722199999999, 3.0870250000000397), 'DRIVING', '20/04/2018', false, 3, null),
-        new Etape(6, "Lyon", new google.maps.LatLng(45.764043, 4.835658999999964), 'DRIVING', '25/04/2018', false, 4, null),
-        new Etape(7, "Grenoble", new google.maps.LatLng(45.188529, 5.724523999999974), 'DRIVING', '30/04/2018', false, 5, ServiceMaps.listePointInteret),
+        new Etape(4, "Paris", new google.maps.LatLng(48.856614, 2.3522219000000177), 'DRIVING', '17/04/2018', true, 5, ServiceMaps.listePointInteret),
+        new Etape(5, "Clermont-Ferrand", new google.maps.LatLng(45.77722199999999, 3.0870250000000397), 'DRIVING', '20/04/2018', false, 6, null),
+        new Etape(6, "Lyon", new google.maps.LatLng(45.764043, 4.835658999999964), 'DRIVING', '25/04/2018', false, 7, null),
+        new Etape(7, "Grenoble", new google.maps.LatLng(45.188529, 5.724523999999974), 'DRIVING', '30/04/2018', false, 8, ServiceMaps.listePointInteret),
         new Etape(8, "Nice", new google.maps.LatLng(43.7101728, 7.261953199999994), 'DRIVING', '03/05/2018', false, null, ServiceMaps.listePointInteret),
     ];
 

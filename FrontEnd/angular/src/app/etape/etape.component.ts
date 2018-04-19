@@ -2,7 +2,7 @@ import * as $ from 'jquery';
 import {Component, OnInit} from '@angular/core';
 import {ViewChild} from '@angular/core';
 import { } from '@types/googlemaps';
-import {ActivatedRoute} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 
 import {ServiceMaps} from "../service/serviceMaps";
 import {Voyage} from "../models/Voyage";
@@ -22,7 +22,7 @@ export class EtapeComponent implements OnInit {
     private map: google.maps.Map;
     private idEtape: number = 0;
 
-    public constructor(private route: ActivatedRoute){
+    public constructor(private router: Router, private route: ActivatedRoute){
         this.route.params.subscribe(params => {
             this.idEtape = +params["id"];
         });
@@ -30,6 +30,10 @@ export class EtapeComponent implements OnInit {
 
     public getEtape(){
         return [this.serveur.getEtapeById(this.idEtape)];
+    }
+
+    public getEtapeSuivante(){
+        return this.serveur.getEtapeById(this.getEtape()[0].idSuivante);
     }
 
     public ngOnInit() {
@@ -46,6 +50,11 @@ export class EtapeComponent implements OnInit {
             position: this.getEtape()[0].latLng,
             title: this.getEtape()[0].nomVille
         });*/
+    }
+
+    reroute(newRoute: string) : void {
+        this.router.navigateByUrl('/'+newRoute, { skipLocationChange: false });
+        this.map.setCenter(this.getEtapeSuivante().latLng);
     }
 
 }

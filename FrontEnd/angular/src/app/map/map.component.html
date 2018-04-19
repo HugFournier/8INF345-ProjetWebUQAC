@@ -39,15 +39,15 @@
             <div (click)="reroute( 'voyage/'+voyage.id )">
                 <h3 align="center">{{ voyage.nom }}</h3>
             </div>
-            <div *ngFor="let etape of voyage.etapes">
+            <!--<div *ngFor="let etape of voyage.etapes">
                 <div (click)="reroute( 'etape/'+etape.id )">
                     <p>{{ etape.nomVille }}</p>    
                 </div>
-                <!--<ul *ngFor="let pt of etape.pointInteret">
+                <ul *ngFor="let pt of etape.pointInteret">
                     <li>{{ pt.nom }}</li>
                     <li>{{ pt.description }}</li>
-                </ul>-->
-            </div>
+                </ul>
+            </div>-->
         </div>
 
     </div>
