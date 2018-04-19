@@ -45,14 +45,20 @@ export class EtapeComponent implements OnInit {
         this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
         //Centre la carte sur les coordonnées de l'étape et ajoute un marker
         this.map.setCenter(this.getEtape()[0].latLng);
-        /*var marker = new google.maps.Marker({
-            map: this.map,
-            position: this.getEtape()[0].latLng,
-            title: this.getEtape()[0].nomVille
-        });*/
+        for(let pi of this.getEtape()[0].pointInteret){
+            this.addWaypoint(pi);
+        }
     }
 
-    reroute(newRoute: string) : void {
+    public addWaypoint(pi: PointDinteret){
+        var marker = new google.maps.Marker({
+            map: this.map,
+            position: pi.latLng,
+            title: pi.nom
+        });
+    }
+
+    public reroute(newRoute: string) : void {
         this.router.navigateByUrl('/'+newRoute, { skipLocationChange: false });
         this.map.setCenter(this.getEtapeSuivante().latLng);
     }

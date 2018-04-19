@@ -5,8 +5,8 @@ import { PointDinteret } from '../models/PointDinteret';
 export class ServiceMaps{
 
     private static listePointInteret: PointDinteret[] = [
-        new PointDinteret(1, "Point 1", new google.maps.LatLng(46.7575555, -60.1884406), "description1"),
-        new PointDinteret(2, "Point 2", new google.maps.LatLng(43.7575555, -53.1884406), "description2")
+        new PointDinteret(1, "Point 1", new google.maps.LatLng(45.1896702, 5.7207622), "description1"),
+        new PointDinteret(2, "Point 2", new google.maps.LatLng(45.1980162, 5.7136382), "description2")
     ];
 
     private static listeEtape1: Etape[] = [
@@ -39,7 +39,7 @@ export class ServiceMaps{
 
     public getEtapeById(id: number){
         // if(ServiceMaps.listeEtape1.find(e => e.id == id) != null){
-            return ServiceMaps.listeEtape1.find(e => e.id == id);
+            return ServiceMaps.listeEtape2.find(e => e.id == id);
         // } else {
         //     return ServiceMaps.listeEtape2.find(e => e.id == id)
         // }

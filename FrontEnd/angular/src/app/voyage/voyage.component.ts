@@ -8,7 +8,6 @@ import {ServiceMaps} from "../service/serviceMaps";
 import {Voyage} from "../models/Voyage";
 import {Etape} from "../models/Etape";
 import {PointDinteret} from "../models/PointDinteret";
-import { start } from 'repl';
 
 @Component({
     selector : 'app-voyage',
@@ -43,7 +42,6 @@ export class VoyageComponent{
         };
         this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
         directionsDisplay.setMap(this.map);
-        //this.map.setCenter(this.getVoyage()[0].etapes[0].latLng);
         this.calculateAndDisplayRoute(directionsService, directionsDisplay);
     }
 

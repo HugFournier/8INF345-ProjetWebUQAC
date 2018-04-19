@@ -22,9 +22,33 @@
             </div>
         </div>
 
-        <div>
-            <!-- Liste des points d'intérêts -->
+        <br>
+        <!-- Liste des points d'intérêts -->
+        <div *ngFor="let e of getEtape()">
+            <div *ngFor="let pi of e.pointInteret">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3>{{ pi.nom }}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>{{ pi.description }}</p>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!--<div class="panel panel-primary article">
+                    <div class="panel-heading detail" (click)="reroute( 'detail/'+a.getID() )">
+                        <h3 align="center">{{ a.getLabel() }}</h3><br>
+                    </div>
+                    <div class="panel-body" (click)="reroute( 'detail/'+a.getID() )">
+                        <img src="{{ a.getImage() }}" class="img-responsive rounded mx-auto d-block detail" alt="{{ a.getLabel() }}" />
+                    </div>
+                    <div class="panel-footer">
+                        <h1 align="center" class="detail" (click)="reroute( 'detail/'+a.getID() )">${{ a.getPrix() }}</h1>
+                        <p align="center"><button class="btn btn-primary" (click)="ajouterArticlePanierParID( a.getID() )">Ajouter au panier</button></p>
+                    </div>
+                </div>-->
 
     </div>
 </main>

@@ -3,7 +3,7 @@
         <h1>Google maps API</h1>
 
 
-        <div class="col-md-8 col-sm-12 col-xs-12">
+        <!--<div class="col-md-8 col-sm-12 col-xs-12">
             <form class="form-inline">
                 <div class="form-group" >
                 <input type="text" class="form-control" name="geo" [(ngModel)]="geo" placeholder="Nom de ville" required>
@@ -23,31 +23,11 @@
                 <button type="button" (click)="setCenter()" class="btn btn-primary" [disabled]="form.invalid"> Go</button>
                 <button type="button" (click)="setMarker()" class="btn btn-primary" [disabled]="form.invalid">Set Marker</button>
             </form>
-        </div>
+        </div>-->
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="text-center">
-                <h3>
-                    <div #gmap style="width:100%;height:400px"></div>
-                </h3>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let voyage of getVoyages()" >
-            <div (click)="reroute( 'voyage/'+voyage.id )">
-                <h3 align="center">{{ voyage.nom }}</h3>
-            </div>
-            <!--<div *ngFor="let etape of voyage.etapes">
-                <div (click)="reroute( 'etape/'+etape.id )">
-                    <p>{{ etape.nomVille }}</p>    
-                </div>
-                <ul *ngFor="let pt of etape.pointInteret">
-                    <li>{{ pt.nom }}</li>
-                    <li>{{ pt.description }}</li>
-                </ul>
-            </div>-->
+        <div *ngFor="let voyage of getVoyages()">
+            <br>
+            <button (click)="reroute( 'voyage/'+voyage.id )" class="btn btn-primary">{{ voyage.nom }}</button>
         </div>
 
     </div>
