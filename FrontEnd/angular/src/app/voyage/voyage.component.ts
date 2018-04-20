@@ -42,7 +42,9 @@ export class VoyageComponent{
         };
         this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
         directionsDisplay.setMap(this.map);
-        this.calculateAndDisplayRoute(directionsService, directionsDisplay);
+        //Vérifie si le voyage contient des étapes. Si oui, affiche les étapes. Si non, ne fais rien.
+        if(this.getVoyage()[0].etapes.length != 0)
+            this.calculateAndDisplayRoute(directionsService, directionsDisplay);
     }
 
     /*

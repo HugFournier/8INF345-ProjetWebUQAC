@@ -5,28 +5,25 @@
         <button type="button" class="btn btn-warning" (click)="reroute('')"><span class="glyphicon glyphicon-chevron-left"></span>Accueil</button>
         <br>
         <div *ngFor="let v of getVoyage()">
-            <h3>{{ v.nom }}</h3>
+            <h2>{{ v.nom }}</h2>
         </div><br>
 
         <div class="row">
             <div class="col-md-12">
                 <div class="text-center">
-                <h3>
-                    <div #gmap style="width:100%;height:400px"></div>
-                </h3>
+                    <h3>
+                        <div #gmap style="width:100%;height:400px"></div>
+                    </h3>
                 </div>
             </div>
         </div>
 
+        <h3>&Eacute;tapes</h3>
         <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let voyage of getVoyage()" >
             <div *ngFor="let etape of voyage.etapes">
                 <div (click)="reroute( 'etape/'+etape.id )">
-                    <p>{{ etape.nomVille }}</p>    
+                    <p class="btn btn-primary btn-block">{{ etape.nomVille }}</p>    
                 </div>
-                <!--<ul *ngFor="let pt of etape.pointInteret">
-                    <li>{{ pt.nom }}</li>
-                    <li>{{ pt.description }}</li>
-                </ul>-->
             </div>
         </div>
 

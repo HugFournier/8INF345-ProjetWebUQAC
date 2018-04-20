@@ -2,13 +2,13 @@
     <br>
     <div class="container">
         <div *ngFor="let e of getEtape()">
-            <h3>{{ e.nomVille }}</h3>
+            <h2>{{ e.nomVille }}</h2>
             <p>{{ e.date }}</p>
 
             <div *ngIf="e.idSuivante != null">
                 <button type="button" class="btn btn-primary" (click)="reroute( 'etape/'+e.idSuivante )">Etape suivante</button>
             </div><br>
-            <button type="button" class="btn btn-primary" (click)="backward()">Revenir en arrière</button>
+            <button type="button" class="btn btn-warning" (click)="backward()">Revenir en arrière</button>
         </div><br>
 
         <div class="row">
@@ -21,11 +21,12 @@
 
         <br>
         <!-- Liste des points d'intérêts -->
+        <h3>Point d'intr&eacute;r&ecirc;ts</h3>
         <div *ngFor="let e of getEtape()">
             <div *ngFor="let pi of e.pointInteret">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3>{{ pi.nom }}</h3>
+                        <h5>{{ pi.nom }}</h5>
                     </div>
                     <div class="panel-body">
                         <p>{{ pi.description }}</p>

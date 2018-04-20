@@ -5,7 +5,6 @@ import { } from '@types/googlemaps';
 import {Router, ActivatedRoute} from "@angular/router";
 
 import {ServiceMaps} from "../service/serviceMaps";
-import {Voyage} from "../models/Voyage";
 import {Etape} from "../models/Etape";
 import {PointDinteret} from "../models/PointDinteret";
 
@@ -44,22 +43,41 @@ export class EtapeComponent implements OnInit {
     public ngOnInit() {
         var mapProp = {
           center: new google.maps.LatLng(46.7575555, -72.1884406),
-          zoom: 11,
+          zoom: 12,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
         //Centre la carte sur les coordonnées de l'étape et ajoute un marker
         this.map.setCenter(this.getEtape()[0].latLng);
         for(let pi of this.getEtape()[0].pointInteret){
-            this.addWaypoint(pi);
+            this.addMarkerPI(pi);
         }
     }
 
-    public addWaypoint(pi: PointDinteret){  
+    /*
+        Ajoute un marker pour chaque points d'intérêts
+        Ajoute une fenêtre d'information avec la description du PI lors d'un click sur le marker
+    */
+    public addMarkerPI(pi: PointDinteret){  
+        var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h4 id="firstHeading" class="firstHeading">' + pi.nom + '</h4>'+
+            '<div id="bodyContent">'+
+            '<p>' + pi.description + '</p>' +
+            '</div>'+
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
         var marker = new google.maps.Marker({
             map: this.map,
             position: pi.latLng,
             title: pi.nom
+        });
+        marker.addListener('click', function() {
+            infowindow.open(this.map, marker);
         });
     }
 

@@ -6,8 +6,6 @@ import {Router, ActivatedRoute} from "@angular/router";
 
 import {ServiceMaps} from "../service/serviceMaps";
 import {Voyage} from "../models/Voyage";
-import {Etape} from "../models/Etape";
-import {PointDinteret} from "../models/PointDinteret";
 
 @Component({
     selector : 'app-map',

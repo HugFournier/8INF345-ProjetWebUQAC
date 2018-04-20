@@ -1,0 +1,20 @@
+<main>
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="Absolute-Center is-Responsive">
+                <h3>Créer un nouveau voyage</h3><br>
+                <div class="col-sm-12 col-md-10 col-md-offset-1">
+                    <form>
+                        <div class="form-group">                    
+                            <input type="text" class="form-control" name="nomVoyage" [(ngModel)]="voyage.nom" placeholder="Nom du voyage" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-block" (click)="creerVoyage()">Créer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

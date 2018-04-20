@@ -10,6 +10,7 @@ import {AuthGuard} from "./auth/auth-guard";
 import {MapComponent} from "./map/map.component";
 import {EtapeComponent} from "./etape/etape.component";
 import {VoyageComponent} from "./voyage/voyage.component";
+import {CreateComponent} from "./create/create.component";
 
 @NgModule({
     imports: [
@@ -24,6 +25,7 @@ import {VoyageComponent} from "./voyage/voyage.component";
         MapComponent,
         EtapeComponent,
         VoyageComponent,
+        CreateComponent,
     ],
     providers: [
       AuthenticationService,

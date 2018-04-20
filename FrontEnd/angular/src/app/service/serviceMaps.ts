@@ -5,8 +5,14 @@ import { PointDinteret } from '../models/PointDinteret';
 export class ServiceMaps{
 
     private static listePointInteret: PointDinteret[] = [
-        new PointDinteret(1, "Point 1", new google.maps.LatLng(45.1896702, 5.7207622), "description1"),
-        new PointDinteret(2, "Point 2", new google.maps.LatLng(45.1980162, 5.7136382), "description2")
+        new PointDinteret(1, "Airbnb", new google.maps.LatLng(45.1896702, 5.7207622), "dodo"),
+        new PointDinteret(2, "Restaurant", new google.maps.LatLng(45.1980162, 5.7136382), "poutine.")
+    ];
+
+    private static listePointInteret2: PointDinteret[] = [
+        new PointDinteret(1, "Tour Eiffel", new google.maps.LatLng(48.8582589, 2.2886944), "Belle tour"),
+        new PointDinteret(2, "Tour Montparnasse", new google.maps.LatLng(48.8403174, 2.308924), "Belle tour v2."),
+        new PointDinteret(1, "Place de la Nation", new google.maps.LatLng(48.8492571, 2.3756888), "Belle place")
     ];
 
     private static listeEtape1: Etape[] = [
@@ -16,14 +22,14 @@ export class ServiceMaps{
     ];
 
     private static listeEtape2: Etape[] = [
-        new Etape(4, "Paris", new google.maps.LatLng(48.856614, 2.3522219000000177), 'DRIVING', '17/04/2018', true, 5, ServiceMaps.listePointInteret),
+        new Etape(4, "Paris", new google.maps.LatLng(48.856614, 2.3522219000000177), 'DRIVING', '17/04/2018', true, 5, ServiceMaps.listePointInteret2),
         new Etape(5, "Clermont-Ferrand", new google.maps.LatLng(45.77722199999999, 3.0870250000000397), 'DRIVING', '20/04/2018', false, 6, null),
         new Etape(6, "Lyon", new google.maps.LatLng(45.764043, 4.835658999999964), 'DRIVING', '25/04/2018', false, 7, null),
         new Etape(7, "Grenoble", new google.maps.LatLng(45.188529, 5.724523999999974), 'DRIVING', '30/04/2018', false, 8, ServiceMaps.listePointInteret),
         new Etape(8, "Nice", new google.maps.LatLng(43.7101728, 7.261953199999994), 'DRIVING', '03/05/2018', false, null, ServiceMaps.listePointInteret),
     ];
 
-    private static listeVoyageStub: Voyage[] = [
+    public static listeVoyageStub: Voyage[] = [
         new Voyage(1, "Voyage 1", ServiceMaps.listeEtape1),
         new Voyage(2, "Voyage 2", ServiceMaps.listeEtape2),
         new Voyage(3, "Voyage 3", ServiceMaps.listeEtape1),
