@@ -1,6 +1,9 @@
 <main>
     <br>
     <div class="container">
+
+        <button type="button" class="btn btn-warning" (click)="reroute('')"><span class="glyphicon glyphicon-chevron-left"></span>Accueil</button>
+        <br>
         <div *ngFor="let v of getVoyage()">
             <h3>{{ v.nom }}</h3>
         </div><br>

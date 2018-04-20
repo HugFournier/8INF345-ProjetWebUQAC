@@ -6,12 +6,9 @@
             <p>{{ e.date }}</p>
 
             <div *ngIf="e.idSuivante != null">
-                <div (click)="reroute( 'etape/'+e.idSuivante )">
-                    <p>Etape suivante</p>
-                </div>
-            </div>
-
-
+                <button type="button" class="btn btn-primary" (click)="reroute( 'etape/'+e.idSuivante )">Etape suivante</button>
+            </div><br>
+            <button type="button" class="btn btn-primary" (click)="backward()">Revenir en arrière</button>
         </div><br>
 
         <div class="row">

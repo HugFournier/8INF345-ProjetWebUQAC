@@ -1,4 +1,4 @@
-import { ArticlePanier } from "./ArticlePanier";
+/*import { ArticlePanier } from "./ArticlePanier";
 import { Panier } from "./Panier";
 
 export class FabriquePanier{
@@ -15,4 +15,4 @@ export class FabriquePanier{
         });
         return panier;
     }
-}
+}*/

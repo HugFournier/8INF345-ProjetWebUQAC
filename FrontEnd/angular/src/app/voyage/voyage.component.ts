@@ -49,22 +49,27 @@ export class VoyageComponent{
         Trace le trajet du RoadTrip
     */
     public calculateAndDisplayRoute(directionsService = null, directionsDisplay= null){
-        let i = 0, depart = "";
+        let i = 0, depart = "", arrive = "";
         for(let etape of this.getVoyage()[0].etapes){
+            //Si c'est la dernière étape on défini le point d'arrivé
+            if(i == (this.getVoyage()[0].etapes.length - 1)){
+                arrive = etape.nomVille;
+                break;
+            }
+            //Si ce n'est pas la première étape, on ajoute au tableau de waypoints
             if(i != 0){
                 this.tableauWaypoints.push({
                     location: etape.latLng,
                     stopover: true
                 });
-            } else { depart = etape.nomVille; }
+            } else { depart = etape.nomVille; } //Sinon on défini le point de départ
             i++;
         }
-
-        var tabWaypoints = this.tableauWaypoints;
+        var tabWaypoints = this.tableauWaypoints; //Affection nécessaire pour pouvoir .pop() dans function(response, status)
 
         directionsService.route({
             origin: depart,
-            destination: depart,
+            destination: arrive,
             waypoints: this.tableauWaypoints,
             optimizeWaypoints: false,
             travelMode: 'DRIVING'
@@ -75,7 +80,7 @@ export class VoyageComponent{
               tabWaypoints.pop();
               alert('Directions request failed due to ' + status);
             }
-          });
+        });
     }
 
     public getVoyage(){

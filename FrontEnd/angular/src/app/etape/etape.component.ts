@@ -36,6 +36,11 @@ export class EtapeComponent implements OnInit {
         return this.serveur.getEtapeById(this.getEtape()[0].idSuivante);
     }
 
+    //Permet de revenir un page en arrière
+    public backward(){
+        window.history.back();
+    }
+
     public ngOnInit() {
         var mapProp = {
           center: new google.maps.LatLng(46.7575555, -72.1884406),
@@ -50,7 +55,7 @@ export class EtapeComponent implements OnInit {
         }
     }
 
-    public addWaypoint(pi: PointDinteret){
+    public addWaypoint(pi: PointDinteret){  
         var marker = new google.maps.Marker({
             map: this.map,
             position: pi.latLng,
