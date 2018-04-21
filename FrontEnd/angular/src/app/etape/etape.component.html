@@ -9,6 +9,7 @@
                 <button type="button" class="btn btn-primary" (click)="reroute( 'etape/'+e.idSuivante )">Etape suivante</button>
             </div><br>
             <button type="button" class="btn btn-warning" (click)="backward()">Revenir en arrière</button>
+            <button type="button" class="btn btn-primary" (click)="center()">Centrer la carte</button>
         </div><br>
 
         <div class="row">
@@ -34,6 +35,7 @@
                 </div>
             </div>
         </div>
+        <button class="btn btn-primary">Ajouter un point d'int&eacute;r&ecirc;t</button>
 
         <!--<div class="panel panel-primary article">
                     <div class="panel-heading detail" (click)="reroute( 'detail/'+a.getID() )">

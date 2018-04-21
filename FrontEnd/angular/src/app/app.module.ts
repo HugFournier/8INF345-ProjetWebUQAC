@@ -11,6 +11,7 @@ import {MapComponent} from "./map/map.component";
 import {EtapeComponent} from "./etape/etape.component";
 import {VoyageComponent} from "./voyage/voyage.component";
 import {CreateComponent} from "./create/create.component";
+import {EditVoyageComponent} from "./editvoyage/editvoyage.component";
 
 @NgModule({
     imports: [
@@ -26,6 +27,7 @@ import {CreateComponent} from "./create/create.component";
         EtapeComponent,
         VoyageComponent,
         CreateComponent,
+        EditVoyageComponent,
     ],
     providers: [
       AuthenticationService,

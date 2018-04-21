@@ -1,13 +1,13 @@
 <main>
     <br>
     <div class="container">
-
-        <button type="button" class="btn btn-warning" (click)="reroute('')"><span class="glyphicon glyphicon-chevron-left"></span>Accueil</button>
-        <br>
         <div *ngFor="let v of getVoyage()">
+            <button type="button" class="btn btn-warning" (click)="reroute('')"><span class="glyphicon glyphicon-chevron-left"></span>Accueil</button>
+            <button type="button" class="btn btn-primary" (click)="reroute('editvoyage/'+v.id)"><span class="glyphicon glyphicon-chevron-left"></span>&Eacute;diter le voyage</button>
+            <br>
             <h2>{{ v.nom }}</h2>
         </div><br>
-
+        
         <div class="row">
             <div class="col-md-12">
                 <div class="text-center">
@@ -18,14 +18,27 @@
             </div>
         </div>
 
-        <h3>&Eacute;tapes</h3>
+        <h3 class="col-xs-12 col-sm-6 col-md-4">&Eacute;tapes</h3>
         <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let voyage of getVoyage()" >
             <div *ngFor="let etape of voyage.etapes">
                 <div (click)="reroute( 'etape/'+etape.id )">
                     <p class="btn btn-primary btn-block">{{ etape.nomVille }}</p>    
                 </div>
             </div>
-        </div>
+        </div> 
+
+
+        <!--<div class="col-xs-12 col-sm-6 col-md-4">
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="nomVille" [(ngModel)]="etape.nomVille" placeholder="Nom de la ville" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="date" [(ngModel)]="etape.date" placeholder="01/01/2001" required>
+                </div>
+                <button (click)="ajouterEtape()" class="btn btn-success btn-block">Ajouter une &Eacute;tape</button>
+            </form>
+        </div>-->
 
     </div>
 </main>

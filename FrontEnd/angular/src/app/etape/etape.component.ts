@@ -27,20 +27,7 @@ export class EtapeComponent implements OnInit {
         });
     }
 
-    public getEtape(){
-        return [this.serveur.getEtapeById(this.idEtape)];
-    }
-
-    public getEtapeSuivante(){
-        return this.serveur.getEtapeById(this.getEtape()[0].idSuivante);
-    }
-
-    //Permet de revenir un page en arrière
-    public backward(){
-        window.history.back();
-    }
-
-    public ngOnInit() {
+    public ngOnInit() : void {
         var mapProp = {
           center: new google.maps.LatLng(46.7575555, -72.1884406),
           zoom: 12,
@@ -58,7 +45,7 @@ export class EtapeComponent implements OnInit {
         Ajoute un marker pour chaque points d'intérêts
         Ajoute une fenêtre d'information avec la description du PI lors d'un click sur le marker
     */
-    public addMarkerPI(pi: PointDinteret){  
+    public addMarkerPI(pi: PointDinteret) : void{  
         var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
@@ -69,7 +56,8 @@ export class EtapeComponent implements OnInit {
             '</div>';
 
         var infowindow = new google.maps.InfoWindow({
-            content: contentString
+            content: contentString,
+            maxWidth: 350
         });
         var marker = new google.maps.Marker({
             map: this.map,
@@ -81,9 +69,33 @@ export class EtapeComponent implements OnInit {
         });
     }
 
+    public center(){
+        this.route.params.subscribe(params => {
+            this.idEtape = +params["id"];
+        });
+        this.map.setCenter(this.getEtape()[0].latLng);
+    }
+
     public reroute(newRoute: string) : void {
         this.router.navigateByUrl('/'+newRoute, { skipLocationChange: false });
         this.map.setCenter(this.getEtapeSuivante().latLng);
+        this.map.setZoom(12);
+        for(let pi of this.getEtapeSuivante().pointInteret){
+            this.addMarkerPI(pi);
+        }
+    }
+
+    public getEtape(){
+        return [this.serveur.getEtapeById(this.idEtape)];
+    }
+
+    public getEtapeSuivante(){
+        return this.serveur.getEtapeById(this.getEtape()[0].idSuivante);
+    }
+
+    //Permet de revenir un page en arrière
+    public backward(){
+        window.history.back();
     }
 
 }

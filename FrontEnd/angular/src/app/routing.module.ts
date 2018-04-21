@@ -6,6 +6,7 @@ import {MapComponent} from "./map/map.component";
 import {EtapeComponent} from "./etape/etape.component";
 import {VoyageComponent} from "./voyage/voyage.component";
 import {CreateComponent} from "./create/create.component";
+import {EditVoyageComponent} from "./editvoyage/editvoyage.component";
 
 const routes: Routes = [
     { path: 'auth', component: ConnexionComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
     { path: 'etape/:id', component: EtapeComponent},
     { path: 'voyage/:id', component: VoyageComponent},
     { path: 'create', component: CreateComponent},
+    { path: 'editvoyage/:id', component: EditVoyageComponent},
     { path: '**', redirectTo: '/notfound' }
 ];
 

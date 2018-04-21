@@ -22,6 +22,8 @@ export class VoyageComponent{
     private map: google.maps.Map;
     private idVoyage;
     private tableauWaypoints = [];
+    private geocoder;
+    //public etape: Etape = new Etape(32, "", null, "DRIVING", "", false, null, new Array<PointDinteret>());
 
     public constructor(private router: Router, private route: ActivatedRoute){
         this.route.params.subscribe(params => {
@@ -36,12 +38,13 @@ export class VoyageComponent{
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer;
         var mapProp = {
-          center: new google.maps.LatLng(46.7575555, -72.1884406),
-          zoom: 6,
+          center: new google.maps.LatLng(20, -15),
+          zoom: 2,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
         directionsDisplay.setMap(this.map);
+        this.geocoder = new google.maps.Geocoder;
         //Vérifie si le voyage contient des étapes. Si oui, affiche les étapes. Si non, ne fais rien.
         if(this.getVoyage()[0].etapes.length != 0)
             this.calculateAndDisplayRoute(directionsService, directionsDisplay);
@@ -84,6 +87,26 @@ export class VoyageComponent{
             }
         });
     }
+
+    /*
+        Utilise un Geocoder pour déterminer Latlng à partir du nom de ville renseignée
+    */
+    /*public ajouterEtape(){
+        let mapGeocode = this.map;
+        let address = this.etape.nomVille;
+        let position;
+        this.geocoder.geocode(
+            {address: address},
+            function(results, status){
+                if(status === 'OK'){
+                    position = results[0].geometry.location;
+                } else {
+                    window.alert("La ville renseignée n'existe pas. Status : " + status)
+                }
+            }
+        );
+        console.log(position);
+    }*/
 
     public getVoyage(){
         return [this.serveur.getVoyageById(this.idVoyage)];
