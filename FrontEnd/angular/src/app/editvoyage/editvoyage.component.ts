@@ -29,6 +29,7 @@ export class EditVoyageComponent {           //implements OnInit {
             this.idVoyage = +params["id"];
             this.voyage = this.serveur.getVoyageById(this.idVoyage);
         });
+        this.geocoder = new google.maps.Geocoder;
     }
 
     /*
@@ -39,10 +40,29 @@ export class EditVoyageComponent {           //implements OnInit {
     }
 
     /*
+        Ajoute une étape au voyage
+    */
+    public addEtape(newNomEtape: string){
+        let position;
+        this.geocoder.geocode(
+            {address: newNomEtape},
+            function(results, status){
+                if(status === 'OK'){
+                    position = results[0].geometry.location;
+                } else {
+                    window.alert("La ville renseignée n'existe pas. Status : " + status);
+                }
+            }
+        );
+        console.log(position);
+    }
+
+    /*
         Modifie une étape du voyage
     */
-    public modifEtape(newNom: string){
-
+    public modifEtape(id: number, newNom: string){
+        let index: number = this.voyage.etapes.indexOf(this.getEtape(id));
+        this.voyage.etapes[index].nomVille = newNom;
     }
 
     /*

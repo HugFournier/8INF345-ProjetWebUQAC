@@ -20,10 +20,13 @@ export class EtapeComponent implements OnInit {
     @ViewChild('gmap') gmapElement: any;
     private map: google.maps.Map;
     private idEtape: number = 0;
+    private etape: Etape;
+    private geocoder;
 
     public constructor(private router: Router, private route: ActivatedRoute){
         this.route.params.subscribe(params => {
             this.idEtape = +params["id"];
+            this.etape = this.getEtape()[0];
         });
     }
 
@@ -36,6 +39,7 @@ export class EtapeComponent implements OnInit {
         this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
         //Centre la carte sur les coordonnées de l'étape et ajoute un marker
         this.map.setCenter(this.getEtape()[0].latLng);
+        this.geocoder = new google.maps.Geocoder;
         for(let pi of this.getEtape()[0].pointInteret){
             this.addMarkerPI(pi);
         }
@@ -46,6 +50,7 @@ export class EtapeComponent implements OnInit {
         Ajoute une fenêtre d'information avec la description du PI lors d'un click sur le marker
     */
     public addMarkerPI(pi: PointDinteret) : void{  
+        let mapGeocode = this.map;
         var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
@@ -59,14 +64,36 @@ export class EtapeComponent implements OnInit {
             content: contentString,
             maxWidth: 350
         });
-        var marker = new google.maps.Marker({
-            map: this.map,
-            position: pi.latLng,
-            title: pi.nom
-        });
-        marker.addListener('click', function() {
-            infowindow.open(this.map, marker);
-        });
+
+        this.geocoder.geocode(
+            { address: pi.adresse },
+            function(results, status){
+                if(status === 'OK'){
+                    var marker = new google.maps.Marker({
+                        map: mapGeocode,
+                        position: results[0].geometry.location,
+                        title: pi.nom
+                    });
+                    marker.addListener('click', function() {
+                        infowindow.open(mapGeocode, marker);
+                    });
+                } else {
+                    window.alert("La ville renseignée n'existe pas. Status : " + status);
+                }
+            }
+        ); 
+    }
+
+    public addPointInteret(newNomPI: string, newAdressePI: string, newDescriptionPI: string){
+        let pi = new PointDinteret(45, newNomPI, newAdressePI, newDescriptionPI);
+        this.getEtape()[0].ajouterPointInteret(pi);
+        this.addMarkerPI(pi);
+        this.clearForm();
+    }
+
+    public supprPointInteret(id: number){
+        let index = this.getEtape()[0].pointInteret.indexOf(this.getEtape()[0].getPointInteret(id));
+        this.getEtape()[0].pointInteret.splice(index, 1);
     }
 
     public center(){
@@ -91,6 +118,12 @@ export class EtapeComponent implements OnInit {
 
     public getEtapeSuivante(){
         return this.serveur.getEtapeById(this.getEtape()[0].idSuivante);
+    }
+
+    private clearForm(){
+        $('#newNomPI').val('');
+        $('#newAdressePI').val('');
+        $('#newDescriptionPI').val('');
     }
 
     //Permet de revenir un page en arrière

@@ -63,6 +63,20 @@ export class VoyageComponent{
             }
             //Si ce n'est pas la première étape, on ajoute au tableau de waypoints
             if(i != 0){
+                /*let mapGeocode = this.map;
+                this.geocoder.geocode(
+                    {address: etape.nomVille},
+                    function(results, status){
+                        if(status === 'OK'){
+                            this.tableauWaypoints.push({
+                                location: results[0].geometry.location,
+                                stopover: true
+                            });
+                        } else {
+                            window.alert("La ville renseignée n'existe pas. Status : " + status);
+                        }
+                    }
+                );*/
                 this.tableauWaypoints.push({
                     location: etape.latLng,
                     stopover: true
@@ -70,6 +84,7 @@ export class VoyageComponent{
             } else { depart = etape.nomVille; } //Sinon on défini le point de départ
             i++;
         }
+
         var tabWaypoints = this.tableauWaypoints; //Affection nécessaire pour pouvoir .pop() dans function(response, status)
 
         directionsService.route({

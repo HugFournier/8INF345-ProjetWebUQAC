@@ -4,13 +4,13 @@ export class PointDinteret {
 
     public id: number;
     public nom: string;
-    public latLng: google.maps.LatLng;
+    public adresse: string;
     public description: string;
 
-    public constructor(id: number, nom: string, latLng: google.maps.LatLng, description: string){
+    public constructor(id: number, nom: string, adresse: string, description: string){
         this.id = id;
         this.nom = nom;
-        this.latLng = latLng;
+        this.adresse = adresse;
         this.description = description;
     }
 

@@ -27,4 +27,13 @@ export class Etape {
         this.pointInteret.push(ptInt);
     }
 
+    public getPointInteret(id: number){
+        return this.pointInteret.find(e => e.id == id);
+    }
+
+    public supprimerPointInteret(ptInt: PointDinteret){
+        let index: number = this.pointInteret.indexOf(ptInt);
+        this.pointInteret.splice(index, 1);
+    }
+
 }

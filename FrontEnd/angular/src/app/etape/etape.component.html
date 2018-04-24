@@ -1,7 +1,7 @@
 <main>
     <br>
     <div class="container">
-        <div *ngFor="let e of getEtape()">
+        <div *ngFor="let e of getEtape(idEtape)">
             <h2>{{ e.nomVille }}</h2>
             <p>{{ e.date }}</p>
 
@@ -30,12 +30,24 @@
                         <h5>{{ pi.nom }}</h5>
                     </div>
                     <div class="panel-body">
+                        <p>{{ pi.adresse }}</p>
                         <p>{{ pi.description }}</p>
                     </div>
                 </div>
+                <button (click)="supprPointInteret(pi.id)" class="btn btn-danger">Supprimer</button>
             </div>
         </div>
-        <button class="btn btn-primary">Ajouter un point d'int&eacute;r&ecirc;t</button>
+
+        <div>
+            <form (ngSubmit)="addPointInteret(newNomPI.value, newAdressePI.value, newDescriptionPI.value)" class="form-inline">
+                <div class="form-group">
+                    <input #newNomPI id="newNomPI" class="form-control" name="newNomPI" placeholder="Tour Eiffel" required>
+                    <input #newAdressePI id="newAdressePI" class="form-control" name="newAdressePI" placeholder="Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France" required>
+                    <input #newDescriptionPI id="newDescriptionPI" class="form-control" name="newDescriptionPI" placeholder="Description" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Ajouter un point d'int&eacute;r&ecirc;t</button>
+            </form>
+        </div>
 
         <!--<div class="panel panel-primary article">
                     <div class="panel-heading detail" (click)="reroute( 'detail/'+a.getID() )">

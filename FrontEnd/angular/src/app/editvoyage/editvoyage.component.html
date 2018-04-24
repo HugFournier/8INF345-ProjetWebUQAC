@@ -11,12 +11,21 @@
 
         <br><h4>Liste des &eacute;tapes</h4>
         <div *ngFor="let etape of voyage.etapes">
-            <br><form class="form-inline">
+            <form class="form-inline">
                 <div class="form-group">
-                    <input #modifEtape type="text" class="form-control" name="nomEtape" value="{{ etape.nomVille }}" placeholder="Nom de l'&eacute;tape">
+                    <input #newNomEtape type="text" class="form-control" name="nomEtape" value="{{ etape.nomVille }}" placeholder="Nom de l'&eacute;tape" required>
                 </div>
-                <button (click)="modifEtape(modifEtape.value)" class="btn btn-success">Modifier</button>
+                <button (click)="modifEtape(etape.id, newNomEtape.value)" class="btn btn-success">Modifier</button>
                 <button (click)="supprEtape(etape.id)" class="btn btn-danger">Supprimer</button>
+            </form><br>
+        </div>
+
+        <div>
+            <form class="form-inline">
+                <div class="form-group">
+                    <input #newEtape type="text" class="form-control" name="newEtape" placeholder="Nom de la ville">
+                </div>
+                <button (click)="addEtape(newEtape.value)" class="btn btn-success">Ajouter une &eacute;tape</button>
             </form>
         </div>
    
