@@ -23,7 +23,6 @@ export class VoyageComponent{
     private idVoyage;
     private tableauWaypoints = [];
     private geocoder;
-    //public etape: Etape = new Etape(32, "", null, "DRIVING", "", false, null, new Array<PointDinteret>());
 
     public constructor(private router: Router, private route: ActivatedRoute){
         this.route.params.subscribe(params => {
@@ -65,7 +64,7 @@ export class VoyageComponent{
             if(i != 0){
                 /*let mapGeocode = this.map;
                 this.geocoder.geocode(
-                    {address: etape.nomVille},
+                    { address: etape.nomVille },
                     function(results, status){
                         if(status === 'OK'){
                             this.tableauWaypoints.push({
@@ -84,7 +83,6 @@ export class VoyageComponent{
             } else { depart = etape.nomVille; } //Sinon on défini le point de départ
             i++;
         }
-
         var tabWaypoints = this.tableauWaypoints; //Affection nécessaire pour pouvoir .pop() dans function(response, status)
 
         directionsService.route({
