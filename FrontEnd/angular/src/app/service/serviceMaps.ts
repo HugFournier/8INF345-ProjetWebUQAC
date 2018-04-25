@@ -29,6 +29,20 @@ export class ServiceMaps{
         new Etape(8, "Nice", new google.maps.LatLng(43.7101728, 7.261953199999994), 'DRIVING', '03/05/2018', false, null, ServiceMaps.listePointInteret),
     ];
 
+    /*private static listeEtape1: Etape[] = [
+        new Etape(1, "Ottawa", 'DRIVING', '17/04/2018', true, 2, ServiceMaps.listePointInteret),
+        new Etape(2, "Montreal", 'DRIVING', '20/04/2018', false, 3, new Array<PointDinteret>()),
+        new Etape(3, "Chicoutimi", 'DRIVING', '25/04/2018', false, null, ServiceMaps.listePointInteret),
+    ];
+
+    private static listeEtape2: Etape[] = [
+        new Etape(4, "Paris", 'DRIVING', '17/04/2018', true, 5, ServiceMaps.listePointInteret2),
+        new Etape(5, "Clermont-Ferrand", 'DRIVING', '20/04/2018', false, 6, new Array<PointDinteret>()),
+        new Etape(6, "Lyon", 'DRIVING', '25/04/2018', false, 7, new Array<PointDinteret>()),
+        new Etape(7, "Grenoble", 'DRIVING', '30/04/2018', false, 8, ServiceMaps.listePointInteret),
+        new Etape(8, "Nice", 'DRIVING', '03/05/2018', false, null, ServiceMaps.listePointInteret),
+    ];*/
+
     public static listeVoyageStub: Voyage[] = [
         new Voyage(1, "Voyage 1", ServiceMaps.listeEtape1),
         new Voyage(2, "Voyage 2", ServiceMaps.listeEtape2),

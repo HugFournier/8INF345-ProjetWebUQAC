@@ -8,6 +8,7 @@ import {ServiceMaps} from "../service/serviceMaps";
 import {Voyage} from "../models/Voyage";
 import {Etape} from "../models/Etape";
 import {PointDinteret} from "../models/PointDinteret";
+import { Stats } from 'fs';
 
 @Component({
     selector : 'app-voyage',
@@ -60,22 +61,17 @@ export class VoyageComponent{
                 arrive = etape.nomVille;
                 break;
             }
-            //Si ce n'est pas la première étape, on ajoute au tableau de waypoints
+            //Si ce n'est pas la première étape, on ajoute l'étape au tableau de waypoints
             if(i != 0){
-                /*let mapGeocode = this.map;
-                this.geocoder.geocode(
-                    { address: etape.nomVille },
-                    function(results, status){
-                        if(status === 'OK'){
-                            this.tableauWaypoints.push({
-                                location: results[0].geometry.location,
-                                stopover: true
-                            });
-                        } else {
-                            window.alert("La ville renseignée n'existe pas. Status : " + status);
-                        }
-                    }
-                );*/
+                /*var latlng;
+                this.getLocation(etape.nomVille, function(location) {
+                    latlng = location;
+                    tabWaypoints.push({
+                        location: latlng,
+                        stopover: true
+                    });
+                });*/
+                this.addressToLocation(etape.nomVille, this.addTabWaypoint)
                 this.tableauWaypoints.push({
                     location: etape.latLng,
                     stopover: true
@@ -100,6 +96,51 @@ export class VoyageComponent{
             }
         });
     }
+
+    private addTabWaypoint(location){
+
+    }
+
+    /*
+        Permet de récupérer un LatLng à partir d'une adresse passée en paramètres avec fonction de callback
+    */
+    private addressToLocation(addr, callback){
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode(
+            {address: addr},
+            function(results, status){
+
+                var resultLocations = [];
+
+                if(status == google.maps.GeocoderStatus.OK){
+                    if(results){
+                        var result = results[0];
+                        resultLocations.push(
+                            {
+                                text: result.formatted_address,
+                                addressStr: result.formatted_address,
+                                location: result.geometry.location
+                            }
+                        );
+                    };
+                } else if (status == google.maps.GeocoderStatus.ZERO_RESULTS){
+                    alert("Pas de résultat");
+                }
+
+                if(resultLocations.length > 0){
+                    callback(resultLocations);
+                } else {
+                    callback(null);
+                }
+            }
+        );
+    }
+
+    /*private getLocation(addr, fn){
+        this.geocoder.geocode( {address: addr}, function(results, status) {
+            fn(results[0].geometry.location);
+        });
+    }*/
 
     /*
         Utilise un Geocoder pour déterminer Latlng à partir du nom de ville renseignée
