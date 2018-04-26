@@ -12,10 +12,10 @@ export class Etape {
     public idSuivante: number;
     public pointInteret: PointDinteret[];
     
-    public constructor(id: number, nomVille: string, moyenDeTransport: string, date: string, estPremiereEtape: boolean, idSuivante: number, pointInteret: PointDinteret[]){
+    public constructor(id: number, nomVille: string, latLng : google.maps.LatLng, moyenDeTransport: string, date: string, estPremiereEtape: boolean, idSuivante: number, pointInteret: PointDinteret[]){
         this.id = id;
         this.nomVille = nomVille;
-        //this.latLng = latLng;
+        this.latLng = latLng;
         this.moyenDeTransport = moyenDeTransport;
         this.date = date;
         this.estPremiereEtape = estPremiereEtape;

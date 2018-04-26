@@ -8,6 +8,7 @@ import {ServiceMaps} from "../service/serviceMaps";
 import {Etape} from "../models/Etape";
 import {PointDinteret} from "../models/PointDinteret";
 import { Voyage } from '../models/Voyage';
+import { setFlagsFromString } from 'v8';
 
 @Component({
     selector : 'app-editvoyage',
@@ -23,6 +24,7 @@ export class EditVoyageComponent {           //implements OnInit {
     private voyage: Voyage;
     private idVoyage;
     private geocoder;
+    private add = false;
 
     public constructor(private router: Router, private route: ActivatedRoute){
         this.route.params.subscribe(params => {
@@ -40,21 +42,28 @@ export class EditVoyageComponent {           //implements OnInit {
     }
 
     /*
-        Ajoute une étape au voyage
+        Vérifie si le nom de ville rentré existe et l'ajoute
     */
-    public addEtape(newNomEtape: string){
-        let position;
+    public verifEtape(newNomEtape: string){
+        var self = this;
+        var nomVille = newNomEtape;
         this.geocoder.geocode(
             {address: newNomEtape},
             function(results, status){
                 if(status === 'OK'){
-                    position = results[0].geometry.location;
+                    self.addEtape(nomVille, results[0].geometry.location);
                 } else {
                     window.alert("La ville renseignée n'existe pas. Status : " + status);
                 }
             }
         );
-        console.log(position);
+    }
+
+    //  Ajoute une étape dans la liste du voyage
+    private addEtape(nomVille: string, latlng){
+        let nEtape = new Etape(30, nomVille, latlng, 'DRIVING', "24/04/12", false, null, new Array<PointDinteret>());
+        this.serveur.ajouterEtape(this.idVoyage, nEtape);
+        this.clearForm();
     }
 
     /*
@@ -83,6 +92,10 @@ export class EditVoyageComponent {           //implements OnInit {
     
     public getVoyage(){
         return [this.serveur.getVoyageById(this.idVoyage)];
+    }
+
+    private clearForm(){
+        $('#newNomEtape').val('');
     }
 
     reroute(newRoute: string) : void {

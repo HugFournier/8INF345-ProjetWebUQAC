@@ -23,9 +23,9 @@
         <div>
             <form class="form-inline">
                 <div class="form-group">
-                    <input #newEtape type="text" class="form-control" name="newEtape" placeholder="Nom de la ville">
+                    <input #newEtape id="newNomEtape" type="text" class="form-control" name="newEtape" placeholder="Nom de la ville">
                 </div>
-                <button (click)="addEtape(newEtape.value)" class="btn btn-success">Ajouter une &eacute;tape</button>
+                <button (click)="verifEtape(newEtape.value)" class="btn btn-success">Ajouter une &eacute;tape</button>
             </form>
         </div>
    
