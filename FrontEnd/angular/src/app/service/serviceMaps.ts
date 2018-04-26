@@ -15,7 +15,7 @@ export class ServiceMaps{
         new PointDinteret(1, "Place de la Nation", "Place de la Nation, Paris, France", "belle place")//new google.maps.LatLng(48.8492571, 2.3756888), "Belle place")
     ];
 
-    private static listeEtape1: Etape[] = [
+    /*private static listeEtape1: Etape[] = [
         new Etape(1, "Ottawa", new google.maps.LatLng(45.4215296, -75.69719309999999), 'DRIVING', '17/04/2018', true, 2, ServiceMaps.listePointInteret),
         new Etape(2, "Montreal", new google.maps.LatLng(45.5016889, -73.56725599999999), 'DRIVING', '20/04/2018', false, 3, new Array<PointDinteret>()),
         new Etape(3, "Chicoutimi", new google.maps.LatLng(48.3516735, -71.13851360000001), 'DRIVING', '25/04/2018', false, null, ServiceMaps.listePointInteret),
@@ -27,9 +27,9 @@ export class ServiceMaps{
         new Etape(6, "Lyon", new google.maps.LatLng(45.764043, 4.835658999999964), 'DRIVING', '25/04/2018', false, 7, new Array<PointDinteret>()),
         new Etape(7, "Grenoble", new google.maps.LatLng(45.188529, 5.724523999999974), 'DRIVING', '30/04/2018', false, 8, ServiceMaps.listePointInteret),
         new Etape(8, "Nice", new google.maps.LatLng(43.7101728, 7.261953199999994), 'DRIVING', '03/05/2018', false, null, ServiceMaps.listePointInteret),
-    ];
+    ];*/
 
-    /*private static listeEtape1: Etape[] = [
+    private static listeEtape1: Etape[] = [
         new Etape(1, "Ottawa", 'DRIVING', '17/04/2018', true, 2, ServiceMaps.listePointInteret),
         new Etape(2, "Montreal", 'DRIVING', '20/04/2018', false, 3, new Array<PointDinteret>()),
         new Etape(3, "Chicoutimi", 'DRIVING', '25/04/2018', false, null, ServiceMaps.listePointInteret),
@@ -41,7 +41,7 @@ export class ServiceMaps{
         new Etape(6, "Lyon", 'DRIVING', '25/04/2018', false, 7, new Array<PointDinteret>()),
         new Etape(7, "Grenoble", 'DRIVING', '30/04/2018', false, 8, ServiceMaps.listePointInteret),
         new Etape(8, "Nice", 'DRIVING', '03/05/2018', false, null, ServiceMaps.listePointInteret),
-    ];*/
+    ];
 
     public static listeVoyageStub: Voyage[] = [
         new Voyage(1, "Voyage 1", ServiceMaps.listeEtape1),
