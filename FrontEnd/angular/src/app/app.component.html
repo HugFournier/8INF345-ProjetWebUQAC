@@ -1,12 +1,11 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark">
     <div class="container-fluid">
-        <a style="color: #44c524" class="navbar-brand" (click)="reroute('')">RoadTrip Planner</a>
+        <a style="color: #44c524" class="navbar-brand">RoadTrip Planner</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li><a class="nav-link" (click)="reroute('')">Accueil</a></li>
                 <li class="nav-link" *ngIf="isConnected()"><a (click)="logout()">Logout</a></li>
                 <li class="nav-link" *ngIf="!isConnected()"><a (click)="reroute('auth')">Login</a></li>
             </ul>
@@ -14,5 +13,23 @@
     </div>
 
 </nav>
+
+<div class="panel-group" id="accordion">
+    
+    <div *ngFor="let voyage of getVoyages()" class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{+voyage.id}}" (click)="reroute( 'voyage/'+voyage.id )" class="btn btn-primary">
+            {{ voyage.nom }}</a>
+        </h4>
+      </div>
+      <div id="collapse{{+voyage.id}}" class="panel-collapse collapse">
+        <div *ngFor="let etape of voyage.etapes" (click)="reroute( 'etape/'+etape.id )">
+            <p class="btn btn-primary btn-block">{{ etape.nomVille }}</p>    
+        </div>
+      </div>
+    </div>
+    
+  </div>
 
 <router-outlet></router-outlet>

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --port=4201",
+    "start": "webpack-dev-server --port=4200",
     "build": "rimraf dist && webpack --config webpack.config.js",
     "ng": "ng",
     "startng": "ng serve"
