@@ -1,4 +1,4 @@
-<!--<nav class="navbar navbar-expand navbar-dark bg-dark">
+<nav class="navbar navbar-expand navbar-dark bg-dark">
     <div class="container-fluid">
         <a style="color: #44c524" class="navbar-brand">RoadTrip Planner</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
@@ -12,11 +12,10 @@
         </div>
     </div>
 
-</nav>-->
+</nav>
 
-<nav class="navbar navbar-inverse navbar-fixed-left">
+<nav class="navbar navbar-inverse navbar-fixed-left" style="float: left; width: 20%;">
     <div class="navbar-header">
-        <h2>RoadTrip Planner</h2>
         <div class="panel-group" id="accordion" >    
             <div *ngFor="let voyage of getVoyages()" class="panel panel-default">
             <div class="panel-heading">
@@ -47,6 +46,6 @@
     </div>
 </nav>
 
-<div class="container">
+<div style="float: left; width: 80%;">
     <router-outlet></router-outlet>
 </div>

@@ -4,12 +4,7 @@
         <div *ngFor="let e of getEtape(idEtape)">
             <h2>{{ e.nomVille }}</h2>
             <p>{{ e.date }}</p>
-
-            <div *ngIf="e.idSuivante != null">
-                <button type="button" class="btn btn-primary" (click)="reroute( 'etape/'+e.idSuivante )">Etape suivante</button>
-            </div><br>
-            <button type="button" class="btn btn-primary" (click)="center()">Centrer la carte</button>
-        </div><br>
+        </div>
 
         <div class="row">
             <div class="col-md-12">
@@ -48,19 +43,6 @@
             </form>
         </div>
         <br>
-
-        <!--<div class="panel panel-primary article">
-                    <div class="panel-heading detail" (click)="reroute( 'detail/'+a.getID() )">
-                        <h3 align="center">{{ a.getLabel() }}</h3><br>
-                    </div>
-                    <div class="panel-body" (click)="reroute( 'detail/'+a.getID() )">
-                        <img src="{{ a.getImage() }}" class="img-responsive rounded mx-auto d-block detail" alt="{{ a.getLabel() }}" />
-                    </div>
-                    <div class="panel-footer">
-                        <h1 align="center" class="detail" (click)="reroute( 'detail/'+a.getID() )">${{ a.getPrix() }}</h1>
-                        <p align="center"><button class="btn btn-primary" (click)="ajouterArticlePanierParID( a.getID() )">Ajouter au panier</button></p>
-                    </div>
-                </div>-->
 
     </div>
 </main>
