@@ -13,7 +13,7 @@ import { Stats } from 'fs';
 @Component({
     selector : 'app-voyage',
     templateUrl: './voyage.component.html',
-    styleUrls: [ './voyage.component.css' ]
+    styleUrls: [ './voyage.component.css' ],
 })
 
 export class VoyageComponent{
@@ -24,10 +24,17 @@ export class VoyageComponent{
     private idVoyage;
     private tableauWaypoints = [];
     private geocoder;
+    private directionsDisplay;
 
     public constructor(private router: Router, private route: ActivatedRoute){
         this.route.params.subscribe(params => {
             this.idVoyage = +params["id"];
+            var directionsService = new google.maps.DirectionsService;
+            this.directionsDisplay = new google.maps.DirectionsRenderer;
+            this.directionsDisplay.set('directions',null);
+            this.directionsDisplay.setMap(this.map);
+            if(this.getVoyage()[0].etapes.length != 0)
+                this.calculateAndDisplayRoute(directionsService, this.directionsDisplay);
         });
     }
 
@@ -93,7 +100,7 @@ export class VoyageComponent{
     }
 
     reroute(newRoute: string) : void {
-        this.router.navigateByUrl('/'+newRoute, { skipLocationChange: false });
+        this.router.navigateByUrl('/'+newRoute, { skipLocationChange: false }); 
     }
 
 }

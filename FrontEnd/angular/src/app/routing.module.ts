@@ -10,7 +10,6 @@ import {EditVoyageComponent} from "./editvoyage/editvoyage.component";
 
 const routes: Routes = [
     { path: 'auth', component: ConnexionComponent },
-    { path: 'accueil', component: AppComponent},
     //{ path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
     { path: 'etape/:id', component: EtapeComponent},
     { path: 'voyage/:id', component: VoyageComponent},
