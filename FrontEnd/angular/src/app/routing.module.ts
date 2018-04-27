@@ -7,12 +7,14 @@ import {EtapeComponent} from "./etape/etape.component";
 import {VoyageComponent} from "./voyage/voyage.component";
 import {CreateComponent} from "./create/create.component";
 import {EditVoyageComponent} from "./editvoyage/editvoyage.component";
+import { MapComponent } from './map/map.component';
 
 const routes: Routes = [
     { path: 'auth', component: ConnexionComponent },
     //{ path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
     { path: 'etape/:id', component: EtapeComponent},
     { path: 'voyage/:id', component: VoyageComponent},
+    { path: 'redirect/:type/:id', component: MapComponent},
     { path: 'create', component: CreateComponent},
     { path: 'editvoyage/:id', component: EditVoyageComponent},
     { path: '**', redirectTo: '/notfound' }

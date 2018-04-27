@@ -2,7 +2,6 @@
     <br>
     <div class="container">
         <div *ngFor="let v of getVoyage()">
-            <button type="button" class="btn btn-warning" (click)="reroute('')"><span class="glyphicon glyphicon-chevron-left"></span>Accueil</button>
             <button type="button" class="btn btn-primary" (click)="reroute('editvoyage/'+v.id)"><span class="glyphicon glyphicon-chevron-left"></span>&Eacute;diter le voyage</button>
             <br>
             <h2>{{ v.nom }}</h2>
