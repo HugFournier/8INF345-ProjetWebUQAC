@@ -46,7 +46,7 @@ export class VoyageComponent{
         directionsDisplay.setMap(this.map);
         this.geocoder = new google.maps.Geocoder;
         //Vérifie si le voyage contient des étapes. Si oui, affiche les étapes. Si non, ne fais rien.
-        if(this.getVoyage()[0].etapes.length != 0)
+        if(this.getVoyage()[0].step.length != 0)
             this.calculateAndDisplayRoute(directionsService, directionsDisplay);
     }
 
@@ -55,19 +55,19 @@ export class VoyageComponent{
     */
     public calculateAndDisplayRoute(directionsService = null, directionsDisplay= null){
         let i = 0, depart = "", arrive = "";
-        for(let etape of this.getVoyage()[0].etapes){
+        for(let etape of this.getVoyage()[0].step){
             //Si c'est la dernière étape on défini le point d'arrivé
-            if(i == (this.getVoyage()[0].etapes.length - 1)){
-                arrive = etape.nomVille;
+            if(i == (this.getVoyage()[0].step.length - 1)){
+                arrive = etape.cityName;
                 break;
             }
             //Si ce n'est pas la première étape, on ajoute l'étape au tableau de waypoints
             if(i != 0){
                 this.tableauWaypoints.push({
-                    location: etape.nomVille,
+                    location: etape.cityName,
                     stopover: true
                 });
-            } else { depart = etape.nomVille; } //Sinon on défini le point de départ
+            } else { depart = etape.cityName; } //Sinon on défini le point de départ
             i++;
         }
         var tabWaypoints = this.tableauWaypoints; //Affection nécessaire pour pouvoir .pop() dans function(response, status)

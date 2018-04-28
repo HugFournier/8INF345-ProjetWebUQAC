@@ -18,7 +18,7 @@ import {PointDinteret} from "../models/PointDinteret";
 export class CreateComponent{
 
     private serveur: ServiceMaps = new ServiceMaps();
-    private voyage: Voyage = { id: 10, nom: "", etapes: [] };
+    private voyage: Voyage = { id: 10, name: "", step: [] };
 
     public constructor(private router: Router){
 

@@ -10,7 +10,7 @@
 
         <div *ngFor="let voyage of getVoyages()" (click)="reroute( 'voyage/'+voyage.id )">
             <br>
-            <button  >{{ voyage.nom }}</button>
+            <button  >{{ voyage.name }}</button>
         </div>
 
     </div>

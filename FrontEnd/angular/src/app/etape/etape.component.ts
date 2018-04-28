@@ -54,7 +54,7 @@ export class EtapeComponent implements OnInit {
         var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h4 id="firstHeading" class="firstHeading">' + pi.nom + '</h4>'+
+            '<h4 id="firstHeading" class="firstHeading">' + pi.name + '</h4>'+
             '<div id="bodyContent">'+
             '<p>' + pi.description + '</p>' +
             '</div>'+
@@ -66,13 +66,13 @@ export class EtapeComponent implements OnInit {
         });
 
         this.geocoder.geocode(
-            { address: pi.adresse },
+            { address: pi.address },
             function(results, status){
                 if(status === 'OK'){
                     var marker = new google.maps.Marker({
                         map: mapGeocode,
                         position: results[0].geometry.location,
-                        title: pi.nom
+                        title: pi.name
                     });
                     marker.addListener('click', function() {
                         infowindow.open(mapGeocode, marker);

@@ -4,7 +4,7 @@
         <div *ngFor="let v of getVoyage()">
             <button type="button" class="btn btn-primary" (click)="reroute('editvoyage/'+v.id)"><span class="glyphicon glyphicon-chevron-left"></span>&Eacute;diter le voyage</button>
             <br>
-            <h2>{{ v.nom }}</h2>
+            <h2>{{ v.name }}</h2>
         </div><br>
         
         <div class="row">

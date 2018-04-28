@@ -52,7 +52,7 @@ export class ServiceMaps{
     }
 
     public ajouterEtape(idVoyage: number, etape: Etape){
-        ServiceMaps.listeVoyageStub.find(e => e.id == idVoyage).etapes.push(etape);
+        ServiceMaps.listeVoyageStub.find(e => e.id == idVoyage).step.push(etape);
     }
 
 }

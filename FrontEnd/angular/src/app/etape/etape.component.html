@@ -2,8 +2,8 @@
     <br>
     <div class="container">
         <div *ngFor="let e of getEtape(idEtape)">
-            <h2>{{ e.nomVille }}</h2>
-            <p>{{ e.date }}</p>
+            <h2>{{ e.cityName }}</h2>
+            <p>{{ e.startingTime }}</p>
         </div>
 
         <div class="row">
@@ -21,10 +21,10 @@
             <div *ngFor="let pi of e.pointInteret">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h5>{{ pi.nom }}</h5>
+                        <h5>{{ pi.name }}</h5>
                     </div>
                     <div class="panel-body">
-                        <p>{{ pi.adresse }}</p>
+                        <p>{{ pi.address }}</p>
                         <p>{{ pi.description }}</p>
                     </div>
                 </div>

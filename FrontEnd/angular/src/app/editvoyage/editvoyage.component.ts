@@ -38,7 +38,7 @@ export class EditVoyageComponent {           //implements OnInit {
         Modifie le nom du voyage
     */
     public updateNomVoyage(newNomVoyage: string){
-        this.voyage.nom = newNomVoyage;
+        this.voyage.name = newNomVoyage;
     }
 
     /*
@@ -70,8 +70,8 @@ export class EditVoyageComponent {           //implements OnInit {
         Modifie une étape du voyage
     */
     public modifEtape(id: number, newNom: string){
-        let index: number = this.voyage.etapes.indexOf(this.getEtape(id));
-        this.voyage.etapes[index].nomVille = newNom;
+        let index: number = this.voyage.step.indexOf(this.getEtape(id));
+        this.voyage.step[index].cityName = newNom;
     }
 
     /*
@@ -79,9 +79,9 @@ export class EditVoyageComponent {           //implements OnInit {
     */
     public supprEtape(id: number){
         if(confirm("Êtes-vous sûr de vouloir supprimer cette étape ?") == true){
-            let index: number = this.voyage.etapes.indexOf(this.getEtape(id));
+            let index: number = this.voyage.step.indexOf(this.getEtape(id));
             if(index > -1){
-                this.voyage.etapes.splice(index, 1);
+                this.voyage.step.splice(index, 1);
             }
         }
     }

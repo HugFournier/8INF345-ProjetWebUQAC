@@ -4,16 +4,16 @@
         <h4>Nom du voyage</h4>
         <form class="form-inline">
             <div class="form-group">
-                <input #modifNomVoyage type="text" class="form-control" name="nomVoyage" value="{{ voyage.nom }}" placeholder="Nom du voyage" required>
+                <input #modifNomVoyage type="text" class="form-control" name="nomVoyage" value="{{ voyage.name }}" placeholder="Nom du voyage" required>
             </div>
             <button type="button" (click)="updateNomVoyage(modifNomVoyage.value)" class="btn btn-success">Modifier le nom du voyage</button>
         </form>
 
         <br><h4>Liste des &eacute;tapes</h4>
-        <div *ngFor="let etape of voyage.etapes">
+        <div *ngFor="let etape of voyage.step">
             <form class="form-inline">
                 <div class="form-group">
-                    <input #newNomEtape type="text" class="form-control" name="nomEtape" value="{{ etape.nomVille }}" placeholder="Nom de l'&eacute;tape" required>
+                    <input #newNomEtape type="text" class="form-control" name="nomEtape" value="{{ etape.cityName }}" placeholder="Nom de l'&eacute;tape" required>
                 </div>
                 <button (click)="modifEtape(etape.id, newNomEtape.value)" class="btn btn-success">Modifier</button>
                 <button (click)="supprEtape(etape.id)" class="btn btn-danger">Supprimer</button>
