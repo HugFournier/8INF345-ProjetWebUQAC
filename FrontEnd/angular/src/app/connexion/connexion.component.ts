@@ -19,7 +19,8 @@ export class ConnexionComponent {
         console.log(this.model);
         this.authenticationService.login(this.model);
         if(this.isConnected()){
-            this.reroute("admin");
+            $('#titre').remove();
+            this.reroute('');
         }
     }
 

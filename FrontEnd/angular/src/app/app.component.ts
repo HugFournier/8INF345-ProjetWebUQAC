@@ -1,3 +1,4 @@
+import * as $ from 'jquery';
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthenticationService} from "./auth/auth.service";
@@ -11,7 +12,9 @@ import {ServiceMaps} from "./service/serviceMaps";
 })
 export class AppComponent {
     constructor(private router: Router, private authService: AuthenticationService, private authGuard: AuthGuard){
-        
+        if(!this.isConnected()){
+            this.reroute('auth');
+        }
     }
 
     reroute(newRoute: string) : void {
@@ -24,7 +27,7 @@ export class AppComponent {
 
     logout() : void {
         this.authService.logout();
-        this.reroute('accueil')
+        this.reroute('auth')
     }
 
     private serveur: ServiceMaps = new ServiceMaps();

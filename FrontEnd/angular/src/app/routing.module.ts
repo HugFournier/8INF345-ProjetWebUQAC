@@ -12,11 +12,11 @@ import { MapComponent } from './map/map.component';
 const routes: Routes = [
     { path: 'auth', component: ConnexionComponent },
     //{ path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
-    { path: 'etape/:id', component: EtapeComponent},
-    { path: 'voyage/:id', component: VoyageComponent},
-    { path: 'redirect/:type/:id', component: MapComponent},
-    { path: 'create', component: CreateComponent},
-    { path: 'editvoyage/:id', component: EditVoyageComponent},
+    { path: 'etape/:id', component: EtapeComponent, canActivate: [AuthGuard]},
+    { path: 'voyage/:id', component: VoyageComponent, canActivate: [AuthGuard]},
+    { path: 'redirect/:type/:id', component: MapComponent, canActivate: [AuthGuard]},
+    { path: 'create', component: CreateComponent, canActivate: [AuthGuard]},
+    { path: 'editvoyage/:id', component: EditVoyageComponent, canActivate: [AuthGuard]},
     { path: '**', redirectTo: '/notfound' }
 ];
 
