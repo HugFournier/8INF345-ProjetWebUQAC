@@ -13,6 +13,7 @@ import {EtapeComponent} from "./etape/etape.component";
 import {VoyageComponent} from "./voyage/voyage.component";
 import {CreateComponent} from "./create/create.component";
 import {EditVoyageComponent} from "./editvoyage/editvoyage.component";
+import {RegisterComponent} from "./register/register.component";
 
 @NgModule({
     imports: [
@@ -25,6 +26,7 @@ import {EditVoyageComponent} from "./editvoyage/editvoyage.component";
     declarations: [
         AppComponent,
         ConnexionComponent,
+        RegisterComponent,
         MapComponent,
         EtapeComponent,
         VoyageComponent,

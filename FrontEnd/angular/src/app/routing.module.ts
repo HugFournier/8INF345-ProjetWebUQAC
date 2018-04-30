@@ -8,10 +8,12 @@ import {VoyageComponent} from "./voyage/voyage.component";
 import {CreateComponent} from "./create/create.component";
 import {EditVoyageComponent} from "./editvoyage/editvoyage.component";
 import { MapComponent } from './map/map.component';
+import {RegisterComponent} from "./register/register.component";
 
 const routes: Routes = [
     { path: 'auth', component: ConnexionComponent },
     //{ path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+    { path: 'register', component: RegisterComponent},
     { path: 'etape/:id', component: EtapeComponent, canActivate: [AuthGuard]},
     { path: 'voyage/:id', component: VoyageComponent, canActivate: [AuthGuard]},
     { path: 'redirect/:type/:id', component: MapComponent, canActivate: [AuthGuard]},

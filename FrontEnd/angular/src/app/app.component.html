@@ -6,8 +6,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-link" *ngIf="isConnected()"><a (click)="logout()">Logout</a></li>
-                <li class="nav-link" *ngIf="!isConnected()"><a (click)="reroute('auth')">Login</a></li>
+                <li class="nav-link" *ngIf="isConnected()"><a (click)="logout()">Deconnexion</a></li>
+                <li class="nav-link" *ngIf="!isConnected()"><a (click)="reroute('register')">Inscription</a></li>
+                <li class="nav-link" *ngIf="!isConnected()"><a (click)="reroute('auth')">Connexion</a></li>
             </ul>
         </div>
     </div>
